@@ -12,16 +12,10 @@ Run server
 Run Redis (for TaskIQ):
 `docker-compose up -d`
 
-Run Task IQ
-`taskiq worker --log-level=INFO --reload config.taskiq_config:broker config.taskiq_tasks`
-
 Run NGINX:
 Build if you haven't already:
 `cd web-simple/nginx`
 `docker build . -t nginx-dev-proxy`
 `./dev_proxy.sh`
 
-Run frontend:
-`npm run dev`
-
-`Go to http://localhost` (no port)
+Run Task IQ, Django server, and react frontend from VS Code "Build and run"
