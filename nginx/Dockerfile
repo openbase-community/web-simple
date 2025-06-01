@@ -6,5 +6,3 @@ RUN rm /etc/nginx/conf.d/default.conf
 # Copy the custom nginx.conf into the container
 COPY nginx.conf /etc/nginx/nginx.conf
 
-# Copy the certs into the container
-COPY certs /etc/nginx/certs
