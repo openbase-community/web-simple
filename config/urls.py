@@ -21,5 +21,4 @@ from django.urls import include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('elder_events_api.elder_events_api.urls')),
-
 ]
