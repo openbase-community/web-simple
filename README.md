@@ -1,5 +1,7 @@
 ## Setup
 
+Create `.env` in `web-simple`. Put `OPENAI_OPENAI_KEY` in there and `GEMINI_API_KEY`
+
 ## Running
 
 `cd web-simple` for all below:
