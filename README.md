@@ -12,3 +12,5 @@ Run Redis (for TaskIQ):
 Run Task IQ
 `cd web-simple`
 `taskiq worker --log-level=INFO --reload config.taskiq_config:broker config.taskiq_tasks`
+
+Run NGINX:
