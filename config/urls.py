@@ -14,11 +14,25 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+import json
+import os
+
 from django.contrib import admin
-from django.urls import path
-from django.urls import include
+from django.urls import include, path
+
+from config.app_packages import get_package_apps
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include('elder_events_api.elder_events_api.urls')),
+    path("admin/", admin.site.urls),
 ]
+
+url_prefixes = json.loads(os.environ.get("URL_PREFIXES", "{}"))
+
+for app in get_package_apps():
+    try:
+        prefix = url_prefixes[app].rstrip("/") + "/" if app in url_prefixes else "api/"
+        urlpatterns.append(path(prefix, include(f"{app}.urls")))
+    except (ImportError, ModuleNotFoundError) as e:
+        print(f"Error importing {app}.urls: {e}")
+        raise e
